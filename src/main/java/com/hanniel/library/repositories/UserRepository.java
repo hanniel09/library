@@ -1,7 +1,11 @@
 package com.hanniel.library.repositories;
 
-import com.hanniel.library.models.User;
+import com.hanniel.library.models.UserModel;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface UserRepository extends JpaRepository<User, Long> {
+import java.util.Optional;
+
+public interface UserRepository extends JpaRepository<UserModel, Long> {
+
+    Optional<UserModel> findByUsername(String username);
 }
