@@ -11,8 +11,8 @@ import java.util.UUID;
 public class RoleModel implements GrantedAuthority {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
-    private UUID id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     @Column(nullable = false)
     private RoleName roleName;
@@ -22,11 +22,11 @@ public class RoleModel implements GrantedAuthority {
         return this.roleName.toString();
     }
 
-    public UUID getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(UUID id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
