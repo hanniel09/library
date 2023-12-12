@@ -1,4 +1,4 @@
-package com.hanniel.library.services;
+package com.hanniel.library.configs;
 
 import com.hanniel.library.models.UserModel;
 import com.hanniel.library.repositories.UserRepository;
