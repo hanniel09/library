@@ -18,12 +18,12 @@ public class WebSecurityConfig {
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception{
         http.
                 authorizeHttpRequests((authorize) -> authorize
-                        .requestMatchers(HttpMethod.GET, "/books/**").permitAll().anyRequest().authenticated())
+                        .requestMatchers(HttpMethod.GET, "/books/**").permitAll()
+                        .anyRequest().authenticated())
                 .httpBasic(Customizer.withDefaults())
                 .formLogin(Customizer.withDefaults())
                 .csrf(AbstractHttpConfigurer::disable);
         return http.build();
-
     }
 
     @Bean
