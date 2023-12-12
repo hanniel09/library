@@ -1,5 +1,6 @@
 package com.hanniel.library.models;
 
+import com.hanniel.library.dtos.UserDTO;
 import jakarta.persistence.*;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -25,6 +26,15 @@ public class UserModel implements UserDetails {
                 joinColumns = @JoinColumn(name = "user_id"),
                 inverseJoinColumns = @JoinColumn(name = "role_id"))
     private List<RoleModel> roles;
+
+    public UserModel() {
+    }
+
+    public UserModel(UserDTO data){
+        this.username = data.username();
+        this.password = data.password();
+        this.roles = data.roles();
+    }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
